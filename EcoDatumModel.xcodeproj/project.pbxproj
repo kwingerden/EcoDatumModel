@@ -10,9 +10,14 @@
 		BE2FC3902222064F00BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC3942222097400BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC39622220CCA00BD5F1C /* EcoDatumCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE2FC39C22221E9600BD5F1C /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39B22221E9600BD5F1C /* photo1.jpg */; };
-		BE2FC39E2222540B00BD5F1C /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39D2222540B00BD5F1C /* photo2.jpg */; };
-		BE2FC3A02222596000BD5F1C /* EcoDataBioticPhoto.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */; };
+		BE2FC39C22221E9600BD5F1C /* BioticPhoto1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39B22221E9600BD5F1C /* BioticPhoto1.jpg */; };
+		BE2FC39E2222540B00BD5F1C /* BioticPhoto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39D2222540B00BD5F1C /* BioticPhoto2.jpg */; };
+		BE2FC3A02222596000BD5F1C /* BioticPhoto.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39F2222596000BD5F1C /* BioticPhoto.json */; };
+		BE2FC3AA2223490400BD5F1C /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2FC3A92223490400BD5F1C /* DataTypes.swift */; };
+		BE2FC3B42223519000BD5F1C /* BioticNote.html in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B32223519000BD5F1C /* BioticNote.html */; };
+		BE2FC3B62223535400BD5F1C /* BioticNote.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B52223535400BD5F1C /* BioticNote.json */; };
+		BE2FC3B8222355B500BD5F1C /* BioticPhotoAndNote.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */; };
+		BE2FC3BA22235B7300BD5F1C /* AbioticAirCarbonDioxide.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */; };
 		BEF255B82220F4A1007134AA /* EcoDatumModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */; };
 		BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255BC2220F4A1007134AA /* SiteTests.swift */; };
 		BEF255BF2220F4A1007134AA /* EcoDatumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF255B12220F4A0007134AA /* EcoDatumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,9 +51,14 @@
 
 /* Begin PBXFileReference section */
 		BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EcoDatumCommon.framework; path = Carthage/Build/iOS/EcoDatumCommon.framework; sourceTree = "<group>"; };
-		BE2FC39B22221E9600BD5F1C /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
-		BE2FC39D2222540B00BD5F1C /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
-		BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EcoDataBioticPhoto.json; sourceTree = "<group>"; };
+		BE2FC39B22221E9600BD5F1C /* BioticPhoto1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BioticPhoto1.jpg; sourceTree = "<group>"; };
+		BE2FC39D2222540B00BD5F1C /* BioticPhoto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BioticPhoto2.jpg; sourceTree = "<group>"; };
+		BE2FC39F2222596000BD5F1C /* BioticPhoto.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BioticPhoto.json; sourceTree = "<group>"; };
+		BE2FC3A92223490400BD5F1C /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
+		BE2FC3B32223519000BD5F1C /* BioticNote.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = BioticNote.html; sourceTree = "<group>"; };
+		BE2FC3B52223535400BD5F1C /* BioticNote.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BioticNote.json; sourceTree = "<group>"; };
+		BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BioticPhotoAndNote.json; sourceTree = "<group>"; };
+		BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AbioticAirCarbonDioxide.json; sourceTree = "<group>"; };
 		BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EcoDatumModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF255B12220F4A0007134AA /* EcoDatumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EcoDatumModel.h; sourceTree = "<group>"; };
 		BEF255B22220F4A0007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,8 +121,9 @@
 		BEF255B02220F4A0007134AA /* EcoDatumModel */ = {
 			isa = PBXGroup;
 			children = (
-				BEF255B12220F4A0007134AA /* EcoDatumModel.h */,
 				BEF6C6022221D25600EDF4E8 /* EcoData.swift */,
+				BEF255B12220F4A0007134AA /* EcoDatumModel.h */,
+				BE2FC3A92223490400BD5F1C /* DataTypes.swift */,
 				BEF255B22220F4A0007134AA /* Info.plist */,
 				BEF255C82220F4B4007134AA /* Site.swift */,
 			);
@@ -122,12 +133,16 @@
 		BEF255BB2220F4A1007134AA /* EcoDatumModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */,
-				BE2FC39D2222540B00BD5F1C /* photo2.jpg */,
-				BE2FC39B22221E9600BD5F1C /* photo1.jpg */,
+				BE2FC39F2222596000BD5F1C /* BioticPhoto.json */,
+				BE2FC39D2222540B00BD5F1C /* BioticPhoto2.jpg */,
+				BE2FC39B22221E9600BD5F1C /* BioticPhoto1.jpg */,
 				BEF255BC2220F4A1007134AA /* SiteTests.swift */,
 				BEF255BE2220F4A1007134AA /* Info.plist */,
 				BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */,
+				BE2FC3B32223519000BD5F1C /* BioticNote.html */,
+				BE2FC3B52223535400BD5F1C /* BioticNote.json */,
+				BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */,
+				BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */,
 			);
 			path = EcoDatumModelTests;
 			sourceTree = "<group>";
@@ -234,9 +249,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2FC39E2222540B00BD5F1C /* photo2.jpg in Resources */,
-				BE2FC3A02222596000BD5F1C /* EcoDataBioticPhoto.json in Resources */,
-				BE2FC39C22221E9600BD5F1C /* photo1.jpg in Resources */,
+				BE2FC3B8222355B500BD5F1C /* BioticPhotoAndNote.json in Resources */,
+				BE2FC3BA22235B7300BD5F1C /* AbioticAirCarbonDioxide.json in Resources */,
+				BE2FC39E2222540B00BD5F1C /* BioticPhoto2.jpg in Resources */,
+				BE2FC3A02222596000BD5F1C /* BioticPhoto.json in Resources */,
+				BE2FC3B62223535400BD5F1C /* BioticNote.json in Resources */,
+				BE2FC3B42223519000BD5F1C /* BioticNote.html in Resources */,
+				BE2FC39C22221E9600BD5F1C /* BioticPhoto1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF255C92220F4B4007134AA /* Site.swift in Sources */,
+				BE2FC3AA2223490400BD5F1C /* DataTypes.swift in Sources */,
 				BEF6C6032221D25600EDF4E8 /* EcoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
