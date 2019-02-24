@@ -10,6 +10,7 @@
 		BE2FC3902222064F00BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC3942222097400BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC39622220CCA00BD5F1C /* EcoDatumCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE2FC39C22221E9600BD5F1C /* test1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39B22221E9600BD5F1C /* test1.jpeg */; };
 		BEF255B82220F4A1007134AA /* EcoDatumModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */; };
 		BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255BC2220F4A1007134AA /* SiteTests.swift */; };
 		BEF255BF2220F4A1007134AA /* EcoDatumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF255B12220F4A0007134AA /* EcoDatumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EcoDatumCommon.framework; path = Carthage/Build/iOS/EcoDatumCommon.framework; sourceTree = "<group>"; };
+		BE2FC39B22221E9600BD5F1C /* test1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test1.jpeg; sourceTree = "<group>"; };
 		BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EcoDatumModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF255B12220F4A0007134AA /* EcoDatumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EcoDatumModel.h; sourceTree = "<group>"; };
 		BEF255B22220F4A0007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		BEF255BB2220F4A1007134AA /* EcoDatumModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE2FC39B22221E9600BD5F1C /* test1.jpeg */,
 				BEF255BC2220F4A1007134AA /* SiteTests.swift */,
 				BEF255BE2220F4A1007134AA /* Info.plist */,
 				BEF6C60C2221D77B00EDF4E8 /* PhotoTests.swift */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2FC39C22221E9600BD5F1C /* test1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
