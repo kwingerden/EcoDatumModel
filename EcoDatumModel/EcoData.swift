@@ -16,11 +16,6 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
         case Biotic
     }
     
-    let primaryTypes: [PrimaryType] = [
-        .Abiotic,
-        .Biotic
-    ]
-    
     enum SecondaryType: String, Codable {
         case Air
         case Note
@@ -29,15 +24,6 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
         case Soil
         case Water
     }
-    
-    let secondaryTypes: [SecondaryType] = [
-        .Air,
-        .Note,
-        .OrganicCarbon,
-        .Photo,
-        .Soil,
-        .Water
-    ]
     
     enum DataType: String, Codable {
         case Carbon
@@ -69,51 +55,9 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
         case Velocity
     }
     
-    static let airDataTypes: [DataType] = [
-        .CarbonDioxide,
-        .Light,
-        .Ozone,
-        .PAR,
-        .RelativeHumidity,
-        .Temperature,
-        .UVB,
-        .Velocity
-    ]
-    
-    static let waterDataTypes: [DataType] = [
-        .Conductivity,
-        .DissolvedOxygen,
-        .FlowRate,
-        .Nitrate,
-        .Odor,
-        .PAR,
-        .pH,
-        .Phosphate,
-        .Temperature,
-        .Turbidity
-    ]
-    
-    static let soilDataTypes: [DataType] = [
-        .Moisture,
-        .Nitrogen,
-        .Phosphorus,
-        .Potassium,
-        .Texture,
-        .Temperature
-    ]
-    
-    static let bioticDataTypes: [DataType] = [
-        .Carbon,
-        .HTML,
-        .JPEG,
-        .PNG,
-        .RTF
-    ]
-    
     enum DataUnit: String, Codable {
         // Latex Editor: http://www.hostmath.com
         
-        case Bytes = "Bytes"
         case DegreesCelsius = "^{\\circ}C"
         case DegreesFahrenheit = "^{\\circ}F"
         case FeetPerSecond = "\\frac{ft}{s}"
@@ -137,120 +81,119 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
         case _Soil_Texture_Scale_ = "Soil \\ Texture \\ Scale"
         case _Water_Odor_Scale_ = "Water \\ Odor \\ Scale"
         case _Water_pH_Scale_ = "Water \\ pH \\ Scale"
-        case _Water_Turbidity_Scale_ = "Water \\ Turbidity \\ Scale"
+        case _Water_Turbidity_Scale_ = "Water \\ Turbidity \\ Scale"        
     }
     
-    static let map: [SecondaryType: [DataType: [DataUnit]]] = [
-        .Air: [
-            .CarbonDioxide: [
-                .PartsPerMillion
+    static let MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
+        .Abiotic: [
+            .Air: [
+                .CarbonDioxide: [
+                    .PartsPerMillion
+                ],
+                .Light: [
+                    .Lux
+                ],
+                .Ozone: [
+                    ._Air_Ozone_Scale_
+                ],
+                .PAR: [
+                    .PhotosyntheticPhotonFluxDensity,
+                    .MicromolesPerMetersSquaredAndSeconds
+                ],
+                .RelativeHumidity: [
+                    .Percent
+                ],
+                .Temperature: [
+                    .DegreesCelsius,
+                    .DegreesFahrenheit
+                ],
+                .UVB: [
+                    .MegawattsPerMeterSquared,
+                    .Percent
+                ],
+                .Velocity: [
+                    .MetersPerSecond,
+                    .MilesPerHour
+                ]
             ],
-            .Light: [
-                .Lux
+            .Soil: [
+                .Nitrogen: [
+                    .PoundsPerAcre
+                ],
+                .Phosphorus: [
+                    .PoundsPerAcre
+                ],
+                .Potassium: [
+                    ._Soil_Potassium_Scale_
+                ],
+                .Moisture: [
+                    .Percent
+                ],
+                .Texture: [
+                    ._Soil_Texture_Scale_
+                ],
+                .Temperature: [
+                    .DegreesCelsius,
+                    .DegreesFahrenheit
+                ]
             ],
-            .Ozone: [
-                ._Air_Ozone_Scale_
-            ],
-            .PAR: [
-                .PhotosyntheticPhotonFluxDensity,
-                .MicromolesPerMetersSquaredAndSeconds
-            ],
-            .RelativeHumidity: [
-                .Percent
-            ],
-            .Temperature: [
-                .DegreesCelsius,
-                .DegreesFahrenheit
-            ],
-            .UVB: [
-                .MegawattsPerMeterSquared,
-                .Percent
-            ],
-            .Velocity: [
-                .MetersPerSecond,
-                .MilesPerHour
+            .Water: [
+                .Conductivity: [
+                    .MicrosiemensPerCentimeter
+                ],
+                .DissolvedOxygen: [
+                    .PartsPerMillion,
+                    .MilligramsPerLiter,
+                    .Percent
+                ],
+                .FlowRate: [
+                    .MetersPerSecond,
+                    .FeetPerSecond
+                ],
+                .Nitrate: [
+                    .PartsPerMillion,
+                    .MilligramsPerLiter
+                ],
+                .Odor: [
+                    ._Water_Odor_Scale_
+                ],
+                .pH: [
+                    ._Water_pH_Scale_
+                ],
+                .Phosphate: [
+                    .PartsPerMillion,
+                    .MilligramsPerLiter
+                ],
+                .Temperature: [
+                    .DegreesCelsius,
+                    .DegreesFahrenheit
+                ],
+                .Turbidity: [
+                    .NephelometricTurbidityUnits,
+                    .JacksonTurbidityUnits,
+                    ._Water_Turbidity_Scale_
+                ]
             ]
         ],
-        .OrganicCarbon: [
-            .Carbon: [
-                .KilogramsOfCarbon
-            ]
-        ],
-        .Note: [
-            .HTML: [
-                .Bytes
+        .Biotic: [
+            .OrganicCarbon: [
+                .Carbon: [
+                    .KilogramsOfCarbon
+                ]
             ],
-            .RTF: [
-                .Bytes
+            .Note: [
+                .HTML: [
+                ],
+                .RTF: [
+                ],
+                .Text: [
+                ]
             ],
-            .Text: [
-                .Bytes
-            ]
-        ],
-        .Photo: [
-            .JPEG: [
-                .Bytes
-            ],
-            .PNG: [
-                .Bytes
-            ]
-        ],
-        .Soil: [
-            .Nitrogen: [
-                .PoundsPerAcre
-            ],
-            .Phosphorus: [
-                .PoundsPerAcre
-            ],
-            .Potassium: [
-                ._Soil_Potassium_Scale_
-            ],
-            .Moisture: [
-                .Percent
-            ],
-            .Texture: [
-                ._Soil_Texture_Scale_
-            ],
-            .Temperature: [
-                .DegreesCelsius,
-                .DegreesFahrenheit
-            ]
-        ],
-        .Water: [
-            .Conductivity: [
-                .MicrosiemensPerCentimeter
-            ],
-            .DissolvedOxygen: [
-                .PartsPerMillion,
-                .MilligramsPerLiter,
-                .Percent
-            ],
-            .FlowRate: [
-                .MetersPerSecond,
-                .FeetPerSecond
-            ],
-            .Nitrate: [
-                .PartsPerMillion,
-                .MilligramsPerLiter
-            ],
-            .Odor: [
-                ._Water_Odor_Scale_
-            ],
-            .pH: [
-                ._Water_pH_Scale_
-            ],
-            .Phosphate: [
-                .PartsPerMillion,
-                .MilligramsPerLiter
-            ],
-            .Temperature: [
-                .DegreesCelsius,
-                .DegreesFahrenheit
-            ],
-            .Turbidity: [
-                .NephelometricTurbidityUnits,
-                .JacksonTurbidityUnits,
-                ._Water_Turbidity_Scale_
+            .Photo: [
+                .JPEG: [
+                ],
+                .PNG: [
+                ]
             ]
         ]
     ]
@@ -262,8 +205,8 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
     let primaryType: PrimaryType
     let secondaryType: SecondaryType
     let dataType: DataType
-    let dataUnit: DataUnit
-    let dataValue: Base64Encoded
+    let dataUnit: DataUnit?
+    let dataValue: Data
     
     public var description: String {
         return "EcoFactor id: \(id), primaryType: \(primaryType)"

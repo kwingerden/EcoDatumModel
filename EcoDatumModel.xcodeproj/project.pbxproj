@@ -10,13 +10,15 @@
 		BE2FC3902222064F00BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC3942222097400BD5F1C /* EcoDatumCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; };
 		BE2FC39622220CCA00BD5F1C /* EcoDatumCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE2FC39C22221E9600BD5F1C /* test1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39B22221E9600BD5F1C /* test1.jpeg */; };
+		BE2FC39C22221E9600BD5F1C /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39B22221E9600BD5F1C /* photo1.jpg */; };
+		BE2FC39E2222540B00BD5F1C /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39D2222540B00BD5F1C /* photo2.jpg */; };
+		BE2FC3A02222596000BD5F1C /* EcoDataBioticPhoto.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */; };
 		BEF255B82220F4A1007134AA /* EcoDatumModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */; };
 		BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255BC2220F4A1007134AA /* SiteTests.swift */; };
 		BEF255BF2220F4A1007134AA /* EcoDatumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF255B12220F4A0007134AA /* EcoDatumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEF255C92220F4B4007134AA /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255C82220F4B4007134AA /* Site.swift */; };
 		BEF6C6032221D25600EDF4E8 /* EcoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C6022221D25600EDF4E8 /* EcoData.swift */; };
-		BEF6C60D2221D77B00EDF4E8 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C60C2221D77B00EDF4E8 /* PhotoTests.swift */; };
+		BEF6C60D2221D77B00EDF4E8 /* EcoDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,9 @@
 
 /* Begin PBXFileReference section */
 		BE2FC38F2222064F00BD5F1C /* EcoDatumCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EcoDatumCommon.framework; path = Carthage/Build/iOS/EcoDatumCommon.framework; sourceTree = "<group>"; };
-		BE2FC39B22221E9600BD5F1C /* test1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test1.jpeg; sourceTree = "<group>"; };
+		BE2FC39B22221E9600BD5F1C /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		BE2FC39D2222540B00BD5F1C /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EcoDataBioticPhoto.json; sourceTree = "<group>"; };
 		BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EcoDatumModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF255B12220F4A0007134AA /* EcoDatumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EcoDatumModel.h; sourceTree = "<group>"; };
 		BEF255B22220F4A0007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +57,7 @@
 		BEF255BE2220F4A1007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEF255C82220F4B4007134AA /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		BEF6C6022221D25600EDF4E8 /* EcoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoData.swift; sourceTree = "<group>"; };
-		BEF6C60C2221D77B00EDF4E8 /* PhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
+		BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +122,12 @@
 		BEF255BB2220F4A1007134AA /* EcoDatumModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE2FC39B22221E9600BD5F1C /* test1.jpeg */,
+				BE2FC39F2222596000BD5F1C /* EcoDataBioticPhoto.json */,
+				BE2FC39D2222540B00BD5F1C /* photo2.jpg */,
+				BE2FC39B22221E9600BD5F1C /* photo1.jpg */,
 				BEF255BC2220F4A1007134AA /* SiteTests.swift */,
 				BEF255BE2220F4A1007134AA /* Info.plist */,
-				BEF6C60C2221D77B00EDF4E8 /* PhotoTests.swift */,
+				BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */,
 			);
 			path = EcoDatumModelTests;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2FC39C22221E9600BD5F1C /* test1.jpeg in Resources */,
+				BE2FC39E2222540B00BD5F1C /* photo2.jpg in Resources */,
+				BE2FC3A02222596000BD5F1C /* EcoDataBioticPhoto.json in Resources */,
+				BE2FC39C22221E9600BD5F1C /* photo1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF6C60D2221D77B00EDF4E8 /* PhotoTests.swift in Sources */,
+				BEF6C60D2221D77B00EDF4E8 /* EcoDataTests.swift in Sources */,
 				BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
