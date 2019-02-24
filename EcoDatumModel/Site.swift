@@ -14,14 +14,12 @@ struct Site: Codable, CustomStringConvertible, Equatable {
     let name: String
     let createdDate: Date
     let updatedDate: Date
-    let altitude: Decimal
-    let altitudeAccuracy: Decimal
-    let coordinateAccuracy: Decimal
-    let latitude: Decimal
-    let longitude: Decimal
-    let ecoData: [EcoData]
-    let notes: [Note]
-    let photos: [Photo]
+    let altitude: Decimal?
+    let altitudeAccuracy: Decimal?
+    let coordinateAccuracy: Decimal?
+    let latitude: Decimal?
+    let longitude: Decimal?
+    let ecoData: [EcoData]?
 
     var description: String {
         return "Site id: \(id), name: \(name)"
