@@ -207,6 +207,7 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
     let dataType: DataType
     let dataUnit: DataUnit?
     let dataValue: Data
+    let associations: [UUID]?
     
     public var description: String {
         return "EcoFactor id: \(id), primaryType: \(primaryType)"

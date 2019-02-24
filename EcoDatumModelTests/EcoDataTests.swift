@@ -35,7 +35,8 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Photo,
             dataType: .JPEG,
             dataUnit: nil,
-            dataValue: photo1Data)
+            dataValue: photo1Data,
+            associations: nil)
         
         let json1 = try toJSON(ecoData1)
         
