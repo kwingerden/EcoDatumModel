@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum PrimaryType: String, Codable {
+public enum PrimaryType: String, Codable {
     case Abiotic
     case Biotic
 }
 
-enum SecondaryType: String, Codable {
+public enum SecondaryType: String, Codable {
     case Air
     case Note
     case OrganicCarbon
@@ -22,7 +22,7 @@ enum SecondaryType: String, Codable {
     case Water
 }
 
-enum DataType: String, Codable {
+public enum DataType: String, Codable {
     case Carbon
     case CarbonDioxide = "Carbon Dioxide"
     case Conductivity
@@ -52,7 +52,7 @@ enum DataType: String, Codable {
     case Velocity
 }
 
-enum DataUnit: String, Codable {
+public enum DataUnit: String, Codable {
     // Latex Editor: http://www.hostmath.com
     
     case DegreesCelsius = "^{\\circ}C"
@@ -73,15 +73,50 @@ enum DataUnit: String, Codable {
     case PhotosyntheticPhotonFluxDensity = "PPFD \\ (Photosynthetic \\ Photon \\ Flux \\ Density)"
     case PoundsPerAcre = "\\frac{lb}{a}"
     
-    case _Air_Ozone_Scale_ = "Air \\ Ozone \\ Scale \\ (\\frac{\\mu g}{m^{3}O_{3}})"
-    case _Soil_Potassium_Scale_ = "Soil \\ Potassium \\ Scale"
-    case _Soil_Texture_Scale_ = "Soil \\ Texture \\ Scale"
-    case _Water_Odor_Scale_ = "Water \\ Odor \\ Scale"
-    case _Water_pH_Scale_ = "Water \\ pH \\ Scale"
-    case _Water_Turbidity_Scale_ = "Water \\ Turbidity \\ Scale"
+    case AirOzoneScale = "Air \\ Ozone \\ Scale \\ (\\frac{\\mu g}{m^{3}O_{3}})"
+    case SoilPotassiumScale = "Soil \\ Potassium \\ Scale"
+    case SoilTextureScale = "Soil \\ Texture \\ Scale"
+    case WaterOdorScale = "Water \\ Odor \\ Scale"
+    case WaterPHScale = "Water \\ pH \\ Scale"
+    case WaterTurbidityScale = "Water \\ Turbidity \\ Scale"
 }
 
-let DATA_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
+public enum AirOzoneScale: String, Codable {
+    case LessThan90
+    case Between90And150
+    case GreaterThan150To210
+    case GreaterThan210
+}
+
+public enum SoilPotassiumScale: String, Codable {
+    case Low
+    case Medium
+    case High
+}
+
+public struct SoilTextureScale: Codable {
+    let percentSand: Int
+    let percentSilt: Int
+    let percentClay: Int
+}
+
+public enum WaterOdorScale: String, Codable {
+    case NoOdor
+    case SlightOdor
+    case Smelly
+    case VerySmelly
+    case Devastating
+}
+
+public enum WaterTurbidityScale: String, Codable {
+    case CrystalClear
+    case SlightlyCloudy
+    case ModeratelyCloudy
+    case VeryCloudy
+    case BlackishOrBrownish
+}
+
+public let TYPE_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
     .Abiotic: [
         .Air: [
             .CarbonDioxide: [
@@ -91,7 +126,7 @@ let DATA_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
                 .Lux
             ],
             .Ozone: [
-                ._Air_Ozone_Scale_
+                .AirOzoneScale
             ],
             .PAR: [
                 .PhotosyntheticPhotonFluxDensity,
@@ -121,13 +156,13 @@ let DATA_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
                 .PoundsPerAcre
             ],
             .Potassium: [
-                ._Soil_Potassium_Scale_
+                .SoilPotassiumScale
             ],
             .Moisture: [
                 .Percent
             ],
             .Texture: [
-                ._Soil_Texture_Scale_
+                .SoilTextureScale
             ],
             .Temperature: [
                 .DegreesCelsius,
@@ -152,10 +187,10 @@ let DATA_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
                 .MilligramsPerLiter
             ],
             .Odor: [
-                ._Water_Odor_Scale_
+                .WaterOdorScale
             ],
             .pH: [
-                ._Water_pH_Scale_
+                .WaterPHScale
             ],
             .Phosphate: [
                 .PartsPerMillion,
@@ -168,7 +203,7 @@ let DATA_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
             .Turbidity: [
                 .NephelometricTurbidityUnits,
                 .JacksonTurbidityUnits,
-                ._Water_Turbidity_Scale_
+                .WaterTurbidityScale
             ]
         ]
     ],

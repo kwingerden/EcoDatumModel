@@ -13,7 +13,68 @@ import EcoDatumCommon
 @testable import EcoDatumModel
 
 class EcoDataTests: XCTestCase {
-
+    
+    func testIsValid() throws {
+        let bundle = Bundle(for: type(of: self))
+        guard let bioticPhoto1JPGURL = bundle.url(forResource: "BioticPhoto1", withExtension: "jpg"),
+            let bioticPhoto1JPGData = try? Data(contentsOf: bioticPhoto1JPGURL) else {
+                XCTFail()
+                return
+        }
+        
+        var ecoData = EcoData(
+            id: UUID(),
+            createdDate: Date(),
+            updatedDate: Date(),
+            collectionDate: Date(),
+            primaryType: .Biotic,
+            secondaryType: .Photo,
+            dataType: .JPEG,
+            dataUnit: nil,
+            dataValue: bioticPhoto1JPGData.base64EncodedString(),
+            ecoData: nil)
+        XCTAssert(ecoData.isValid())
+        
+        ecoData = EcoData(
+            id: UUID(),
+            createdDate: Date(),
+            updatedDate: Date(),
+            collectionDate: Date(),
+            primaryType: .Biotic,
+            secondaryType: .Air,
+            dataType: .JPEG,
+            dataUnit: nil,
+            dataValue: bioticPhoto1JPGData.base64EncodedString(),
+            ecoData: nil)
+        XCTAssert(!ecoData.isValid())
+        
+        ecoData = EcoData(
+            id: UUID(),
+            createdDate: Date(),
+            updatedDate: Date(),
+            collectionDate: Date(),
+            primaryType: .Abiotic,
+            secondaryType: .Air,
+            dataType: .PAR,
+            dataUnit: .PhotosyntheticPhotonFluxDensity,
+            dataValue: "123".data(using: .utf8)!.base64EncodedString(),
+            ecoData: nil)
+        XCTAssert(ecoData.isValid())
+        
+        ecoData = EcoData(
+            id: UUID(),
+            createdDate: Date(),
+            updatedDate: Date(),
+            collectionDate: Date(),
+            primaryType: .Abiotic,
+            secondaryType: .Air,
+            dataType: .PAR,
+            dataUnit: .Percent,
+            dataValue: "123".data(using: .utf8)!.base64EncodedString(),
+            ecoData: nil)
+        XCTAssert(!ecoData.isValid())
+    }
+    
     func testBioticPhoto() throws {
         let bundle = Bundle(for: type(of: self))
         guard let bioticPhoto1JPGURL = bundle.url(forResource: "BioticPhoto1", withExtension: "jpg"),
@@ -35,7 +96,7 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Photo,
             dataType: .JPEG,
             dataUnit: nil,
-            dataValue: bioticPhoto1JPGData,
+            dataValue: bioticPhoto1JPGData.base64EncodedString(),
             ecoData: nil)
         
         let ecoDataJSON1 = try toJSON(ecoData1)
@@ -52,7 +113,7 @@ class EcoDataTests: XCTestCase {
         XCTAssert(ecoData1.secondaryType.rawValue == ecoDataJSON2["secondaryType"] as! String)
         XCTAssert(ecoData1.dataType.rawValue == ecoDataJSON2["dataType"] as! String)
         XCTAssert(ecoData1.dataUnit == nil)
-        XCTAssert(String(data: ecoData1.dataValue.base64EncodedData() , encoding: .utf8) == (ecoDataJSON2["dataValue"] as! String))
+        XCTAssert(ecoData1.dataValue.base64Decode() == (ecoDataJSON2["dataValue"] as! String))
     }
     
     func testBioticNote() throws {
@@ -76,7 +137,7 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Note,
             dataType: .HTML,
             dataUnit: nil,
-            dataValue: bioticNote1HTMLData,
+            dataValue: bioticNote1HTMLData.base64EncodedString(),
             ecoData: nil)
         
         let json1 = try toJSON(ecoData1)
@@ -93,7 +154,7 @@ class EcoDataTests: XCTestCase {
         XCTAssert(ecoData1.secondaryType.rawValue == json2["secondaryType"] as! String)
         XCTAssert(ecoData1.dataType.rawValue == json2["dataType"] as! String)
         XCTAssert(ecoData1.dataUnit == nil)
-        XCTAssert(String(data: ecoData1.dataValue.base64EncodedData() , encoding: .utf8) == (json2["dataValue"] as! String))
+        XCTAssert(ecoData1.dataValue.base64Decode() == (json2["dataValue"] as! String))
     }
     
     func testBioticPhotoAndNote() throws {
@@ -120,7 +181,7 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Note,
             dataType: .HTML,
             dataUnit: nil,
-            dataValue: bioticNote1HTMLData,
+            dataValue: bioticNote1HTMLData.base64EncodedString(),
             ecoData: nil)
         let ecoDataPhotoAndNote1 = EcoData(
             id: noteUUID,
@@ -131,9 +192,9 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Photo,
             dataType: .JPEG,
             dataUnit: nil,
-            dataValue: bioticPhoto1JPGData,
+            dataValue: bioticPhoto1JPGData.base64EncodedString(),
             ecoData: [ecoDataNote1])
-     
+        
         let json1 = try toJSON(ecoDataPhotoAndNote1)
         
         let ecoDataPhotoAndNote2 = try fromJSON(EcoData.self, json1)
@@ -148,7 +209,7 @@ class EcoDataTests: XCTestCase {
         XCTAssert(ecoDataPhotoAndNote1.secondaryType.rawValue == json2["secondaryType"] as! String)
         XCTAssert(ecoDataPhotoAndNote1.dataType.rawValue == json2["dataType"] as! String)
         XCTAssert(ecoDataPhotoAndNote1.dataUnit == nil)
-        XCTAssert(String(data: ecoDataPhotoAndNote1.dataValue.base64EncodedData() , encoding: .utf8) == (json2["dataValue"] as! String))
+        XCTAssert(ecoDataPhotoAndNote1.dataValue.base64Decode() == (json2["dataValue"] as! String))
         
         let ecoDataArray = json2["ecoData"] as! [Dictionary<String, AnyObject>]
         XCTAssert(ecoDataArray.count == 1)
@@ -161,7 +222,7 @@ class EcoDataTests: XCTestCase {
         XCTAssert(ecoDataNote1.secondaryType.rawValue == json3["secondaryType"] as! String)
         XCTAssert(ecoDataNote1.dataType.rawValue == json3["dataType"] as! String)
         XCTAssert(ecoDataNote1.dataUnit == nil)
-        XCTAssert(String(data: ecoDataNote1.dataValue.base64EncodedData() , encoding: .utf8) == (json3["dataValue"] as! String))
+        XCTAssert(ecoDataNote1.dataValue.base64Decode() == (json3["dataValue"] as! String))
     }
     
     func testAbioticData1() throws {
@@ -171,8 +232,8 @@ class EcoDataTests: XCTestCase {
             let dataValueData = "344".data(using: .utf8),
             let uuid = UUID(uuidString: "1CA3CAF0-B073-489A-AE18-837C4D193D08"),
             let date = "2019-02-24T23:07:48Z".iso8601Date() else {
-            XCTFail()
-            return
+                XCTFail()
+                return
         }
         let ecoData1 = EcoData(
             id: uuid,
@@ -183,7 +244,7 @@ class EcoDataTests: XCTestCase {
             secondaryType: .Air,
             dataType: .CarbonDioxide,
             dataUnit: .PartsPerMillion,
-            dataValue: dataValueData,
+            dataValue: dataValueData.base64EncodedString(),
             ecoData: nil)
         
         let json1 = try toJSON(ecoData1)
@@ -200,6 +261,6 @@ class EcoDataTests: XCTestCase {
         XCTAssert(ecoData1.secondaryType.rawValue == json2["secondaryType"] as! String)
         XCTAssert(ecoData1.dataType.rawValue == json2["dataType"] as! String)
         XCTAssert(ecoData1.dataUnit!.rawValue == json2["dataUnit"] as! String)
-        XCTAssert(String(data: ecoData1.dataValue.base64EncodedData() , encoding: .utf8) == (json2["dataValue"] as! String))
+        XCTAssert(ecoData1.dataValue.base64Encode() == (json2["dataValue"] as! String))
     }
 }
