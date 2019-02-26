@@ -18,12 +18,12 @@
 		BE2FC3B62223535400BD5F1C /* BioticNote.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B52223535400BD5F1C /* BioticNote.json */; };
 		BE2FC3B8222355B500BD5F1C /* BioticPhotoAndNote.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */; };
 		BE2FC3BA22235B7300BD5F1C /* AbioticAirCarbonDioxide.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */; };
+		BEC8637B2225B82900AC120A /* EcoDatumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8637A2225B82900AC120A /* EcoDatumTests.swift */; };
 		BEF255B82220F4A1007134AA /* EcoDatumModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */; };
 		BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255BC2220F4A1007134AA /* SiteTests.swift */; };
 		BEF255BF2220F4A1007134AA /* EcoDatumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF255B12220F4A0007134AA /* EcoDatumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEF255C92220F4B4007134AA /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF255C82220F4B4007134AA /* Site.swift */; };
-		BEF6C6032221D25600EDF4E8 /* EcoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C6022221D25600EDF4E8 /* EcoData.swift */; };
-		BEF6C60D2221D77B00EDF4E8 /* EcoDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */; };
+		BEF6C6032221D25600EDF4E8 /* EcoDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6C6022221D25600EDF4E8 /* EcoDatum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +59,7 @@
 		BE2FC3B52223535400BD5F1C /* BioticNote.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BioticNote.json; sourceTree = "<group>"; };
 		BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BioticPhotoAndNote.json; sourceTree = "<group>"; };
 		BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AbioticAirCarbonDioxide.json; sourceTree = "<group>"; };
+		BEC8637A2225B82900AC120A /* EcoDatumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcoDatumTests.swift; sourceTree = "<group>"; };
 		BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EcoDatumModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF255B12220F4A0007134AA /* EcoDatumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EcoDatumModel.h; sourceTree = "<group>"; };
 		BEF255B22220F4A0007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +67,7 @@
 		BEF255BC2220F4A1007134AA /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		BEF255BE2220F4A1007134AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEF255C82220F4B4007134AA /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
-		BEF6C6022221D25600EDF4E8 /* EcoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoData.swift; sourceTree = "<group>"; };
-		BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDataTests.swift; sourceTree = "<group>"; };
+		BEF6C6022221D25600EDF4E8 /* EcoDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDatum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 		BEF255B02220F4A0007134AA /* EcoDatumModel */ = {
 			isa = PBXGroup;
 			children = (
-				BEF6C6022221D25600EDF4E8 /* EcoData.swift */,
+				BEF6C6022221D25600EDF4E8 /* EcoDatum.swift */,
 				BEF255B12220F4A0007134AA /* EcoDatumModel.h */,
 				BE2FC3A92223490400BD5F1C /* DataTypes.swift */,
 				BEF255B22220F4A0007134AA /* Info.plist */,
@@ -133,12 +133,12 @@
 		BEF255BB2220F4A1007134AA /* EcoDatumModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				BEC8637A2225B82900AC120A /* EcoDatumTests.swift */,
 				BE2FC39F2222596000BD5F1C /* BioticPhoto.json */,
 				BE2FC39D2222540B00BD5F1C /* BioticPhoto2.jpg */,
 				BE2FC39B22221E9600BD5F1C /* BioticPhoto1.jpg */,
 				BEF255BC2220F4A1007134AA /* SiteTests.swift */,
 				BEF255BE2220F4A1007134AA /* Info.plist */,
-				BEF6C60C2221D77B00EDF4E8 /* EcoDataTests.swift */,
 				BE2FC3B32223519000BD5F1C /* BioticNote.html */,
 				BE2FC3B52223535400BD5F1C /* BioticNote.json */,
 				BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */,
@@ -309,7 +309,7 @@
 			files = (
 				BEF255C92220F4B4007134AA /* Site.swift in Sources */,
 				BE2FC3AA2223490400BD5F1C /* DataTypes.swift in Sources */,
-				BEF6C6032221D25600EDF4E8 /* EcoData.swift in Sources */,
+				BEF6C6032221D25600EDF4E8 /* EcoDatum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF6C60D2221D77B00EDF4E8 /* EcoDataTests.swift in Sources */,
 				BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */,
+				BEC8637B2225B82900AC120A /* EcoDatumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 import EcoDatumCommon
 
-public struct EcoData: Codable, CustomStringConvertible, Equatable {
+public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
     
     let id: UUID
     let createdDate: Date
@@ -20,10 +20,10 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
     let dataType: DataType
     let dataUnit: DataUnit?
     let dataValue: Base64Encoded
-    let ecoData: [EcoData]?
+    let ecoData: [EcoDatum]?
     
     public var description: String {
-        return "EcoFactor id: \(id), primaryType: \(primaryType)"
+        return "EcoDatum id: \(id), primaryType: \(primaryType)"
     }
     
     public func isValid() -> Bool {
@@ -42,7 +42,7 @@ public struct EcoData: Codable, CustomStringConvertible, Equatable {
         }
     }
     
-    public static func == (lhs: EcoData, rhs: EcoData) -> Bool {
+    public static func == (lhs: EcoDatum, rhs: EcoDatum) -> Bool {
         return lhs.id == rhs.id
     }
     

@@ -12,7 +12,7 @@ import XCTest
 import EcoDatumCommon
 @testable import EcoDatumModel
 
-class EcoDataTests: XCTestCase {
+class EcoDatumTests: XCTestCase {
     
     func testIsValid() throws {
         let bundle = Bundle(for: type(of: self))
@@ -22,7 +22,7 @@ class EcoDataTests: XCTestCase {
                 return
         }
         
-        var ecoData = EcoData(
+        var ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -35,7 +35,7 @@ class EcoDataTests: XCTestCase {
             ecoData: nil)
         XCTAssert(ecoData.isValid())
         
-        ecoData = EcoData(
+        ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -48,7 +48,7 @@ class EcoDataTests: XCTestCase {
             ecoData: nil)
         XCTAssert(!ecoData.isValid())
         
-        ecoData = EcoData(
+        ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -61,7 +61,7 @@ class EcoDataTests: XCTestCase {
             ecoData: nil)
         XCTAssert(ecoData.isValid())
         
-        ecoData = EcoData(
+        ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -74,7 +74,7 @@ class EcoDataTests: XCTestCase {
             ecoData: nil)
         XCTAssert(!ecoData.isValid())
         
-        ecoData = EcoData(
+        ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -87,7 +87,7 @@ class EcoDataTests: XCTestCase {
             ecoData: nil)
         XCTAssert(ecoData.isValid())
         
-        ecoData = EcoData(
+        ecoData = EcoDatum(
             id: UUID(),
             createdDate: Date(),
             updatedDate: Date(),
@@ -113,7 +113,7 @@ class EcoDataTests: XCTestCase {
                 return
         }
         
-        let ecoData1 = EcoData(
+        let ecoData1 = EcoDatum(
             id: uuid,
             createdDate: date,
             updatedDate: date,
@@ -127,7 +127,7 @@ class EcoDataTests: XCTestCase {
         
         let ecoDataJSON1 = try toJSON(ecoData1)
         
-        let ecoData2 = try fromJSON(EcoData.self, ecoDataJSON1)
+        let ecoData2 = try fromJSON(EcoDatum.self, ecoDataJSON1)
         XCTAssert(ecoData1 == ecoData2)
         
         let ecoDataJSON2 = try JSONSerialization.jsonObject(with: bioticPhotoJSONData, options: []) as! Dictionary<String, AnyObject>
@@ -154,7 +154,7 @@ class EcoDataTests: XCTestCase {
                 return
         }
         
-        let ecoData1 = EcoData(
+        let ecoData1 = EcoDatum(
             id: uuid,
             createdDate: date,
             updatedDate: date,
@@ -168,7 +168,7 @@ class EcoDataTests: XCTestCase {
         
         let json1 = try toJSON(ecoData1)
         
-        let ecoData2 = try fromJSON(EcoData.self, json1)
+        let ecoData2 = try fromJSON(EcoDatum.self, json1)
         XCTAssert(ecoData1 == ecoData2)
         
         let json2 = try JSONSerialization.jsonObject(with: bioticNoteData, options: []) as! Dictionary<String, AnyObject>
@@ -198,7 +198,7 @@ class EcoDataTests: XCTestCase {
                 return
         }
         
-        let ecoDataNote1 = EcoData(
+        let ecoDataNote1 = EcoDatum(
             id: photoUUID,
             createdDate: date,
             updatedDate: date,
@@ -209,7 +209,7 @@ class EcoDataTests: XCTestCase {
             dataUnit: nil,
             dataValue: bioticNote1HTMLData.base64EncodedString(),
             ecoData: nil)
-        let ecoDataPhotoAndNote1 = EcoData(
+        let ecoDataPhotoAndNote1 = EcoDatum(
             id: noteUUID,
             createdDate: date,
             updatedDate: date,
@@ -223,7 +223,7 @@ class EcoDataTests: XCTestCase {
         
         let json1 = try toJSON(ecoDataPhotoAndNote1)
         
-        let ecoDataPhotoAndNote2 = try fromJSON(EcoData.self, json1)
+        let ecoDataPhotoAndNote2 = try fromJSON(EcoDatum.self, json1)
         XCTAssert(ecoDataPhotoAndNote1 == ecoDataPhotoAndNote2)
         
         let json2 = try JSONSerialization.jsonObject(with: bioticPhotoAndNoteData, options: []) as! Dictionary<String, AnyObject>
@@ -261,7 +261,7 @@ class EcoDataTests: XCTestCase {
                 XCTFail()
                 return
         }
-        let ecoData1 = EcoData(
+        let ecoData1 = EcoDatum(
             id: uuid,
             createdDate: date,
             updatedDate: date,
@@ -275,7 +275,7 @@ class EcoDataTests: XCTestCase {
         
         let json1 = try toJSON(ecoData1)
         
-        let ecoData2 = try fromJSON(EcoData.self, json1)
+        let ecoData2 = try fromJSON(EcoDatum.self, json1)
         XCTAssert(ecoData1 == ecoData2)
         
         let json2 = try JSONSerialization.jsonObject(with: abioticAirCarbonDioxideData, options: []) as! Dictionary<String, AnyObject>

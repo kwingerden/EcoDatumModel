@@ -19,7 +19,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable {
     let coordinateAccuracy: Decimal?
     let latitude: Decimal?
     let longitude: Decimal?
-    let ecoData: [EcoData]?
+    let ecoData: [EcoDatum]?
     
     public var description: String {
         return "Site id: \(id), name: \(name)"
