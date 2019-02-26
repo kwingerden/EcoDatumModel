@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EcoDatumCommon
 
 public enum PrimaryType: String, Codable {
     case Abiotic
@@ -86,18 +87,34 @@ public enum AirOzoneScale: String, Codable {
     case Between90And150
     case GreaterThan150To210
     case GreaterThan210
+    
+    func base64Encoded() -> Base64Encoded? {
+        return rawValue.data(using: .utf8)?.base64EncodedString()
+    }
 }
 
 public enum SoilPotassiumScale: String, Codable {
     case Low
     case Medium
     case High
+    
+    func base64Encoded() -> Base64Encoded? {
+        return rawValue.data(using: .utf8)?.base64EncodedString()
+    }
 }
 
 public struct SoilTextureScale: Codable {
     let percentSand: Int
     let percentSilt: Int
     let percentClay: Int
+    
+    func base64Encoded() -> Base64Encoded? {
+        guard let json = try? toJSON(self),
+           let encoded = json.base64Encode() else {
+            return nil
+        }
+        return encoded
+    }
 }
 
 public enum WaterOdorScale: String, Codable {
@@ -106,6 +123,10 @@ public enum WaterOdorScale: String, Codable {
     case Smelly
     case VerySmelly
     case Devastating
+    
+    func base64Encoded() -> Base64Encoded? {
+        return rawValue.data(using: .utf8)?.base64EncodedString()
+    }
 }
 
 public enum WaterTurbidityScale: String, Codable {
@@ -114,6 +135,10 @@ public enum WaterTurbidityScale: String, Codable {
     case ModeratelyCloudy
     case VeryCloudy
     case BlackishOrBrownish
+    
+    func base64Encoded() -> Base64Encoded? {
+        return rawValue.data(using: .utf8)?.base64EncodedString()
+    }
 }
 
 public let TYPE_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
