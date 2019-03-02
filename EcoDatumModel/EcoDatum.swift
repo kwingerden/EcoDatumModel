@@ -11,16 +11,16 @@ import EcoDatumCommon
 
 public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
     
-    let id: UUID
-    let createdDate: Date
-    let updatedDate: Date
-    let collectionDate: Date
-    let primaryType: PrimaryType
-    let secondaryType: SecondaryType
-    let dataType: DataType
-    let dataUnit: DataUnit?
-    let dataValue: Base64Encoded
-    let ecoData: [EcoDatum]?
+    public let id: UUID
+    public let createdDate: Date
+    public let updatedDate: Date
+    public let collectionDate: Date
+    public let primaryType: PrimaryType
+    public let secondaryType: SecondaryType
+    public let dataType: DataType
+    public let dataUnit: DataUnit?
+    public let dataValue: Base64Encoded
+    public let ecoData: [EcoDatum]?
     
     public var description: String {
         return "EcoDatum id: \(id), primaryType: \(primaryType)"
