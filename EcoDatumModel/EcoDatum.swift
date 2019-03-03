@@ -22,10 +22,32 @@ public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
     public let dataValue: Base64Encoded
     public let ecoData: [EcoDatum]?
     
+    public init(id: UUID,
+                createdDate: Date,
+                updatedDate: Date,
+                collectionDate: Date,
+                primaryType: PrimaryType,
+                secondaryType: SecondaryType,
+                dataType: DataType,
+                dataUnit: DataUnit? = nil,
+                dataValue: Base64Encoded,
+                ecoData: [EcoDatum]? = nil) {
+        self.id = id
+        self.createdDate = createdDate
+        self.updatedDate = updatedDate
+        self.collectionDate = collectionDate
+        self.primaryType = primaryType
+        self.secondaryType = secondaryType
+        self.dataType = dataType
+        self.dataUnit = dataUnit
+        self.dataValue = dataValue
+        self.ecoData = ecoData
+    }
+    
     public var description: String {
         return "EcoDatum id: \(id), primaryType: \(primaryType)"
     }
-    
+
     public func isValid() -> Bool {
         guard let secondaryTypeDict = TYPE_MAP[primaryType],
             let dataTypeDict = secondaryTypeDict[secondaryType],
