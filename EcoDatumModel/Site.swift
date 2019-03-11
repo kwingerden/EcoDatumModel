@@ -11,73 +11,71 @@ import CoreLocation
 
 public struct Site: Codable, CustomStringConvertible, Equatable {
     
-    public let id: UUID
+    public let id: UUID?
     public let name: String
-    public let createdDate: Date
-    public let updatedDate: Date
-    public let altitude: Double?
-    public let altitudeAccuracy: Double?
-    public let coordinateAccuracy: Double?
-    public let latitude: Double?
-    public let longitude: Double?
+    public let createdDate: Date?
+    public let updatedDate: Date?
+    public let location: Location?
     public let ecoData: [EcoDatum]?
     
-    public init(id: UUID,
+    public init(id: UUID? = nil,
                 name: String,
-                createdDate: Date,
-                updatedDate: Date,
-                altitude: Double? = nil,
-                altitudeAccuracy: Double? = nil,
-                coordinateAccuracy: Double? = nil,
-                latitude: Double? = nil,
-                longitude: Double? = nil,
+                createdDate: Date? = nil,
+                updatedDate: Date? = nil,
+                location: Location? = nil,
                 ecoData: [EcoDatum]? = nil) {
         self.id = id
         self.name = name
         self.createdDate = createdDate
         self.updatedDate = updatedDate
-        self.altitude = altitude
-        self.altitudeAccuracy = altitudeAccuracy
-        self.coordinateAccuracy = coordinateAccuracy
-        self.latitude = latitude
-        self.longitude = longitude
+        self.location = location
         self.ecoData = ecoData
     }
     
-    public init(id: UUID,
+    public init(id: UUID? = nil,
                 name: String,
-                createdDate: Date,
-                updatedDate: Date,
+                createdDate: Date? = nil,
+                updatedDate: Date? = nil,
+                coordinate: Coordinate? = nil,
+                altitude: Altitude? = nil,
+                ecoData: [EcoDatum]? = nil) {
+        self.id = id
+        self.name = name
+        self.createdDate = createdDate
+        self.updatedDate = updatedDate
+        if let coordinate = coordinate, let altitude = altitude {
+            self.location = Location(coordinate: coordinate, altitude: altitude)
+        } else {
+            self.location = nil
+        }
+        self.ecoData = ecoData
+    }
+    
+    public init(id: UUID? = nil,
+                name: String,
+                createdDate: Date? = nil,
+                updatedDate: Date? = nil,
                 location: CLLocation,
                 ecoData: [EcoDatum]? = nil) {
         self.id = id
         self.name = name
         self.createdDate = createdDate
         self.updatedDate = updatedDate
-        self.altitude = location.altitude
-        self.altitudeAccuracy = location.verticalAccuracy
-        self.coordinateAccuracy = location.horizontalAccuracy
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
+        let coordinate = Coordinate(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude,
+            accuracy: location.horizontalAccuracy)
+        let altitude = Altitude(
+            altitude: location.altitude,
+            accuracy: location.verticalAccuracy)
+        self.location = Location(coordinate: coordinate, altitude: altitude)
         self.ecoData = ecoData
     }
     
     public var description: String {
-        return "Site id: \(id), name: \(name)"
+        return "Site id: \(String(describing: id)), name: \(name)"
     }
     
-    public var location: CLLocation? {
-        guard let latitude = latitude, let longitude = longitude else {
-            return nil
-        }
-        return CLLocation(
-            coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
-            altitude: altitude ?? 0,
-            horizontalAccuracy: coordinateAccuracy ?? 0,
-            verticalAccuracy: altitudeAccuracy ?? -1,
-            timestamp: Date())
-    }
-
     public static func == (lhs: Site, rhs: Site) -> Bool {
         return lhs.id == rhs.id
     }

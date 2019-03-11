@@ -12,28 +12,45 @@ import EcoDatumCommon
 
 class SiteTests: XCTestCase {
     
-    var site1: Site!
+    var appleHQCoordinate: Coordinate!
+    var appleHQAltitude: Altitude!
+    var appleHQLocation: Location!
+    var appleHQSite: Site!
+    
+    var googleplexCoordinate: Coordinate!
+    var googleplexAltitude: Altitude!
+    var googleplexLocation: Location!
+    var googleplexSite: Site!
     
     override func setUp() {
-        //site1 = Site(id: UUID(), name: "Site 1", createdDate: Date(), updatedDate: Date())
+        appleHQCoordinate = Coordinate(latitude: 37.33182, longitude: -122.03118, accuracy: 0)
+        appleHQAltitude = Altitude(altitude: 100, accuracy: 0)
+        appleHQLocation = Location(coordinate: appleHQCoordinate, altitude: appleHQAltitude)
+        appleHQSite = Site(
+            id: UUID(),
+            name: "Apple Headquarters",
+            createdDate: Date(),
+            updatedDate: Date(),
+            location: appleHQLocation)
+        
+        googleplexCoordinate = Coordinate(latitude: 37.422, longitude: -122.084, accuracy: 0)
+        googleplexAltitude = Altitude(altitude: 100, accuracy: 0)
+        googleplexLocation = Location(coordinate: googleplexCoordinate, altitude: googleplexAltitude)
+        googleplexSite = Site(
+            id: UUID(),
+            name: "Googleplex",
+            createdDate: Date(),
+            updatedDate: Date(),
+            location: googleplexLocation)
     }
     
     override func tearDown() {
     
     }
     
-    func testJSON() throws {
-        /*
-        let json = try EcoDatumCommon.toJSON(site1)
-        let site2 = try EcoDatumCommon.fromJSON(Site.self, json)
-        XCTAssert(site1 == site2)
- */
+    func test1() throws {
+        XCTAssert(appleHQSite.location?.isValid ?? false)
+        XCTAssert(googleplexSite.location?.isValid ?? false)
     }
     
-    func testCustomStringConvertible() {
-        /*
-        XCTAssert(site1.description == "Site id: \(site1.id), name: Site 1")
- */
-    }
-
 }
