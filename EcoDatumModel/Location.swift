@@ -9,17 +9,26 @@
 import Foundation
 import CoreLocation
 
-public struct Location: Codable, CustomStringConvertible, Equatable {
+public struct Location: Codable, CustomStringConvertible, Equatable, Validatable {
     
+    public static let KIND = "EcoDatum#Location"
+    
+    public let kind: String
     public let coordinate: Coordinate
     public let altitude: Altitude
+    
+    public init(coordinate: Coordinate, altitude: Altitude) {
+        self.kind = Location.KIND
+        self.coordinate = coordinate
+        self.altitude = altitude
+    }
     
     public var description: String {
         return "Location coordinate: \(coordinate), altitude: \(altitude)"
     }
 
     public var isValid: Bool {
-        return coordinate.isValid && altitude.isValid
+        return kind == Location.KIND && coordinate.isValid && altitude.isValid
     }
     
     public static func == (lhs: Location, rhs: Location) -> Bool {

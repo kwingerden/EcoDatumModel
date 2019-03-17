@@ -33,7 +33,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: nil,
             dataValue: bioticPhoto1JPGData.base64EncodedString(),
             ecoData: nil)
-        XCTAssert(ecoData.isValid())
+        XCTAssert(ecoData.isValid)
         
         ecoData = EcoDatum(
             id: UUID(),
@@ -46,7 +46,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: nil,
             dataValue: bioticPhoto1JPGData.base64EncodedString(),
             ecoData: nil)
-        XCTAssert(!ecoData.isValid())
+        XCTAssert(!ecoData.isValid)
         
         ecoData = EcoDatum(
             id: UUID(),
@@ -59,7 +59,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: .PhotosyntheticPhotonFluxDensity,
             dataValue: "123".data(using: .utf8)!.base64EncodedString(),
             ecoData: nil)
-        XCTAssert(ecoData.isValid())
+        XCTAssert(ecoData.isValid)
         
         ecoData = EcoDatum(
             id: UUID(),
@@ -72,7 +72,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: .Percent,
             dataValue: "123".data(using: .utf8)!.base64EncodedString(),
             ecoData: nil)
-        XCTAssert(!ecoData.isValid())
+        XCTAssert(!ecoData.isValid)
         
         ecoData = EcoDatum(
             id: UUID(),
@@ -85,7 +85,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: .WaterTurbidityScale,
             dataValue: WaterTurbidityScale.BlackishOrBrownish.base64Encoded()!,
             ecoData: nil)
-        XCTAssert(ecoData.isValid())
+        XCTAssert(ecoData.isValid)
         
         ecoData = EcoDatum(
             id: UUID(),
@@ -98,7 +98,7 @@ class EcoDatumTests: XCTestCase {
             dataUnit: .SoilTextureScale,
             dataValue: SoilTextureScale(percentSand: 20, percentSilt: 30, percentClay: 40).base64Encoded()!,
             ecoData: nil)
-        XCTAssert(ecoData.isValid())
+        XCTAssert(ecoData.isValid)
     }
     
     func testBioticPhoto() throws {
@@ -131,6 +131,7 @@ class EcoDatumTests: XCTestCase {
         XCTAssert(ecoData1 == ecoData2)
         
         let ecoDataJSON2 = try JSONSerialization.jsonObject(with: bioticPhotoJSONData, options: []) as! Dictionary<String, AnyObject>
+        XCTAssert(ecoData1.kind == ecoDataJSON2["kind"] as! String)
         XCTAssert(ecoData1.id.uuidString == ecoDataJSON2["id"] as! String)
         XCTAssert(ecoData1.createdDate.iso8601String() == ecoDataJSON2["createdDate"] as! String)
         XCTAssert(ecoData1.updatedDate.iso8601String() == ecoDataJSON2["updatedDate"] as! String)
@@ -172,6 +173,7 @@ class EcoDatumTests: XCTestCase {
         XCTAssert(ecoData1 == ecoData2)
         
         let json2 = try JSONSerialization.jsonObject(with: bioticNoteData, options: []) as! Dictionary<String, AnyObject>
+        XCTAssert(ecoData1.kind == json2["kind"] as! String)
         XCTAssert(ecoData1.id.uuidString == json2["id"] as! String)
         XCTAssert(ecoData1.createdDate.iso8601String() == json2["createdDate"] as! String)
         XCTAssert(ecoData1.updatedDate.iso8601String() == json2["updatedDate"] as! String)
@@ -227,6 +229,7 @@ class EcoDatumTests: XCTestCase {
         XCTAssert(ecoDataPhotoAndNote1 == ecoDataPhotoAndNote2)
         
         let json2 = try JSONSerialization.jsonObject(with: bioticPhotoAndNoteData, options: []) as! Dictionary<String, AnyObject>
+        XCTAssert(ecoDataPhotoAndNote1.kind == json2["kind"] as! String)
         XCTAssert(ecoDataPhotoAndNote1.id.uuidString == json2["id"] as! String)
         XCTAssert(ecoDataPhotoAndNote1.createdDate.iso8601String() == json2["createdDate"] as! String)
         XCTAssert(ecoDataPhotoAndNote1.updatedDate.iso8601String() == json2["updatedDate"] as! String)
@@ -240,6 +243,7 @@ class EcoDatumTests: XCTestCase {
         let ecoDataArray = json2["ecoData"] as! [Dictionary<String, AnyObject>]
         XCTAssert(ecoDataArray.count == 1)
         let json3 = ecoDataArray[0]
+        XCTAssert(ecoDataNote1.kind == json3["kind"] as! String)
         XCTAssert(ecoDataNote1.id.uuidString == json3["id"] as! String)
         XCTAssert(ecoDataNote1.createdDate.iso8601String() == json3["createdDate"] as! String)
         XCTAssert(ecoDataNote1.updatedDate.iso8601String() == json3["updatedDate"] as! String)

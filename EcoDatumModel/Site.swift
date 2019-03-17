@@ -9,8 +9,11 @@
 import Foundation
 import CoreLocation
 
-public struct Site: Codable, CustomStringConvertible, Equatable {
+public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
     
+    public static let KIND = "EcoDatum#Site"
+    
+    public let kind: String
     public let id: UUID?
     public let name: String
     public let createdDate: Date?
@@ -24,6 +27,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable {
                 updatedDate: Date? = nil,
                 location: Location? = nil,
                 ecoData: [EcoDatum]? = nil) {
+        self.kind = Site.KIND
         self.id = id
         self.name = name
         self.createdDate = createdDate
@@ -39,6 +43,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable {
                 coordinate: Coordinate? = nil,
                 altitude: Altitude? = nil,
                 ecoData: [EcoDatum]? = nil) {
+        self.kind = Site.KIND
         self.id = id
         self.name = name
         self.createdDate = createdDate
@@ -57,6 +62,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable {
                 updatedDate: Date? = nil,
                 location: CLLocation,
                 ecoData: [EcoDatum]? = nil) {
+        self.kind = Site.KIND
         self.id = id
         self.name = name
         self.createdDate = createdDate
@@ -70,6 +76,10 @@ public struct Site: Codable, CustomStringConvertible, Equatable {
             accuracy: location.verticalAccuracy)
         self.location = Location(coordinate: coordinate, altitude: altitude)
         self.ecoData = ecoData
+    }
+    
+    public var isValid: Bool {
+        return kind == Site.KIND
     }
     
     public var description: String {

@@ -9,8 +9,11 @@
 import Foundation
 import EcoDatumCommon
 
-public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
+public struct EcoDatum: Codable, CustomStringConvertible, Equatable, Validatable {
     
+    public static let KIND = "EcoDatum#EcoDatum"
+    
+    public let kind: String
     public let id: UUID
     public let createdDate: Date
     public let updatedDate: Date
@@ -32,6 +35,7 @@ public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
                 dataUnit: DataUnit? = nil,
                 dataValue: Base64Encoded,
                 ecoData: [EcoDatum]? = nil) {
+        self.kind = EcoDatum.KIND
         self.id = id
         self.createdDate = createdDate
         self.updatedDate = updatedDate
@@ -48,8 +52,9 @@ public struct EcoDatum: Codable, CustomStringConvertible, Equatable {
         return "EcoDatum id: \(id), primaryType: \(primaryType)"
     }
 
-    public func isValid() -> Bool {
-        guard let secondaryTypeDict = TYPE_MAP[primaryType],
+    public var isValid: Bool {
+        guard kind == EcoDatum.KIND,
+            let secondaryTypeDict = TYPE_MAP[primaryType],
             let dataTypeDict = secondaryTypeDict[secondaryType],
             let dataUnitArray = dataTypeDict[dataType] else {
                 return false

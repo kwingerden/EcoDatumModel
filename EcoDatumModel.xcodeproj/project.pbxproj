@@ -20,6 +20,10 @@
 		BE2FC3BA22235B7300BD5F1C /* AbioticAirCarbonDioxide.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */; };
 		BE5697AA22344F1C0095AEA3 /* Altitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5697A922344F1C0095AEA3 /* Altitude.swift */; };
 		BE5697AC22345C870095AEA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5697AB22345C870095AEA3 /* Location.swift */; };
+		BE965365223D757F00EB2003 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE965364223D757F00EB2003 /* Notebook.swift */; };
+		BE965367223D77AD00EB2003 /* NotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE965366223D77AD00EB2003 /* NotebookTests.swift */; };
+		BE965369223D780700EB2003 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE965368223D780700EB2003 /* TestData.swift */; };
+		BE96536B223D809000EB2003 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96536A223D809000EB2003 /* Validatable.swift */; };
 		BEA0CCFA222CC9A8008F8112 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0CCF9222CC9A8008F8112 /* Coordinate.swift */; };
 		BEC8637B2225B82900AC120A /* EcoDatumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8637A2225B82900AC120A /* EcoDatumTests.swift */; };
 		BEF255B82220F4A1007134AA /* EcoDatumModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */; };
@@ -64,6 +68,10 @@
 		BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AbioticAirCarbonDioxide.json; sourceTree = "<group>"; };
 		BE5697A922344F1C0095AEA3 /* Altitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Altitude.swift; sourceTree = "<group>"; };
 		BE5697AB22345C870095AEA3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BE965364223D757F00EB2003 /* Notebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
+		BE965366223D77AD00EB2003 /* NotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookTests.swift; sourceTree = "<group>"; };
+		BE965368223D780700EB2003 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		BE96536A223D809000EB2003 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		BEA0CCF9222CC9A8008F8112 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		BEC8637A2225B82900AC120A /* EcoDatumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcoDatumTests.swift; sourceTree = "<group>"; };
 		BEF255AE2220F4A0007134AA /* EcoDatumModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EcoDatumModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +143,8 @@
 				BEA0CCF9222CC9A8008F8112 /* Coordinate.swift */,
 				BE5697A922344F1C0095AEA3 /* Altitude.swift */,
 				BE5697AB22345C870095AEA3 /* Location.swift */,
+				BE965364223D757F00EB2003 /* Notebook.swift */,
+				BE96536A223D809000EB2003 /* Validatable.swift */,
 			);
 			path = EcoDatumModel;
 			sourceTree = "<group>";
@@ -152,6 +162,8 @@
 				BE2FC3B52223535400BD5F1C /* BioticNote.json */,
 				BE2FC3B7222355B500BD5F1C /* BioticPhotoAndNote.json */,
 				BE2FC3B922235B7300BD5F1C /* AbioticAirCarbonDioxide.json */,
+				BE965366223D77AD00EB2003 /* NotebookTests.swift */,
+				BE965368223D780700EB2003 /* TestData.swift */,
 			);
 			path = EcoDatumModelTests;
 			sourceTree = "<group>";
@@ -321,7 +333,9 @@
 				BE2FC3AA2223490400BD5F1C /* DataTypes.swift in Sources */,
 				BEF6C6032221D25600EDF4E8 /* EcoDatum.swift in Sources */,
 				BE5697AC22345C870095AEA3 /* Location.swift in Sources */,
+				BE96536B223D809000EB2003 /* Validatable.swift in Sources */,
 				BEA0CCFA222CC9A8008F8112 /* Coordinate.swift in Sources */,
+				BE965365223D757F00EB2003 /* Notebook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE965367223D77AD00EB2003 /* NotebookTests.swift in Sources */,
 				BEF255BD2220F4A1007134AA /* SiteTests.swift in Sources */,
 				BEC8637B2225B82900AC120A /* EcoDatumTests.swift in Sources */,
+				BE965369223D780700EB2003 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
