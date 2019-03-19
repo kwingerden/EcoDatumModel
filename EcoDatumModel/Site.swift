@@ -14,17 +14,17 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
     public static let KIND = "EcoDatum#Site"
     
     public let kind: String
-    public let id: UUID?
+    public let id: UUID
     public let name: String
-    public let createdDate: Date?
-    public let updatedDate: Date?
+    public let createdDate: Date
+    public let updatedDate: Date
     public let location: Location?
     public let ecoData: [EcoDatum]?
     
-    public init(id: UUID? = nil,
+    public init(id: UUID,
                 name: String,
-                createdDate: Date? = nil,
-                updatedDate: Date? = nil,
+                createdDate: Date,
+                updatedDate: Date,
                 location: Location? = nil,
                 ecoData: [EcoDatum]? = nil) {
         self.kind = Site.KIND
@@ -36,10 +36,10 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
         self.ecoData = ecoData
     }
     
-    public init(id: UUID? = nil,
+    public init(id: UUID,
                 name: String,
-                createdDate: Date? = nil,
-                updatedDate: Date? = nil,
+                createdDate: Date,
+                updatedDate: Date,
                 coordinate: Coordinate? = nil,
                 altitude: Altitude? = nil,
                 ecoData: [EcoDatum]? = nil) {
@@ -56,10 +56,10 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
         self.ecoData = ecoData
     }
     
-    public init(id: UUID? = nil,
+    public init(id: UUID,
                 name: String,
-                createdDate: Date? = nil,
-                updatedDate: Date? = nil,
+                createdDate: Date,
+                updatedDate: Date,
                 location: CLLocation,
                 ecoData: [EcoDatum]? = nil) {
         self.kind = Site.KIND

@@ -15,20 +15,23 @@ public struct Altitude: Codable, CustomStringConvertible, Equatable, Validatable
     
     public let kind: String
     public let altitude: CLLocationDistance
-    public let accuracy: CLLocationAccuracy
+    public let accuracy: CLLocationAccuracy?
     
-    public init(altitude: CLLocationDistance, accuracy: CLLocationAccuracy = 0) {
+    public init(altitude: CLLocationDistance, accuracy: CLLocationAccuracy? = nil) {
         self.kind = Altitude.KIND
         self.altitude = altitude
         self.accuracy = accuracy
     }
     
     public var description: String {
-        return "Altitude altitude: \(altitude), accuracy: \(accuracy)"
+        return "Altitude altitude: \(altitude)"
     }
     
     public var isValid: Bool {
-        return kind == Altitude.KIND && accuracy >= 0
+        if let accuracy = accuracy, accuracy < 0 {
+            return false
+        }
+        return kind == Altitude.KIND
     }
     
     public static func == (lhs: Altitude, rhs: Altitude) -> Bool {

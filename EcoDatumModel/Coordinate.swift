@@ -16,9 +16,9 @@ public struct Coordinate: Codable, CustomStringConvertible, Equatable, Validatab
     public let kind: String
     public let latitude: CLLocationDegrees
     public let longitude: CLLocationDegrees
-    public let accuracy: CLLocationDistance
+    public let accuracy: CLLocationDistance?
     
-    public init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, accuracy: CLLocationDistance = 0) {
+    public init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, accuracy: CLLocationDistance? = nil) {
         self.kind = Coordinate.KIND
         self.latitude = latitude
         self.longitude = longitude
@@ -33,7 +33,7 @@ public struct Coordinate: Codable, CustomStringConvertible, Equatable, Validatab
     }
     
     public var description: String {
-        return "Coordinate latitude: \(latitude), longitude: \(longitude), accuracy: \(accuracy))"
+        return "Coordinate latitude: \(latitude), longitude: \(longitude)"
     }
     
     public var coordinate: CLLocationCoordinate2D {
@@ -41,7 +41,10 @@ public struct Coordinate: Codable, CustomStringConvertible, Equatable, Validatab
     }
     
     public var isValid: Bool {
-        return kind == Coordinate.KIND && CLLocationCoordinate2DIsValid(coordinate) && accuracy >= 0
+        if let accuracy = accuracy, accuracy < 0 {
+            return false
+        }
+        return kind == Coordinate.KIND && CLLocationCoordinate2DIsValid(coordinate)
     }
     
     public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
