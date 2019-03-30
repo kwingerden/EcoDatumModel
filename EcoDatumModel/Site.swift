@@ -40,7 +40,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
                 name: String,
                 createdDate: Date,
                 updatedDate: Date,
-                coordinate: Coordinate? = nil,
+                coordinate: Coordinate,
                 altitude: Altitude? = nil,
                 ecoData: [EcoDatum]? = nil) {
         self.kind = Site.KIND
@@ -48,11 +48,7 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
         self.name = name
         self.createdDate = createdDate
         self.updatedDate = updatedDate
-        if let coordinate = coordinate, let altitude = altitude {
-            self.location = Location(coordinate: coordinate, altitude: altitude)
-        } else {
-            self.location = nil
-        }
+        self.location = Location(coordinate: coordinate, altitude: altitude)
         self.ecoData = ecoData
     }
     
@@ -79,6 +75,9 @@ public struct Site: Codable, CustomStringConvertible, Equatable, Validatable {
     }
     
     public var isValid: Bool {
+        if let location = location, !location.isValid {
+            return false
+        }
         return kind == Site.KIND
     }
     
