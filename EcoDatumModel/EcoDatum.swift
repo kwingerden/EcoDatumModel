@@ -25,10 +25,10 @@ public struct EcoDatum: Codable, CustomStringConvertible, Equatable, Validatable
     public let dataValue: Base64Encoded
     public let ecoData: [EcoDatum]?
     
-    public init(id: UUID,
-                createdDate: Date,
-                updatedDate: Date,
-                collectionDate: Date,
+    public init(id: UUID = UUID(),
+                createdDate: Date = Date(),
+                updatedDate: Date = Date(),
+                collectionDate: Date = Date(),
                 primaryType: PrimaryType,
                 secondaryType: SecondaryType,
                 dataType: DataType,

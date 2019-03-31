@@ -12,6 +12,8 @@ import EcoDatumCommon
 public enum PrimaryType: String, Codable {
     case Abiotic
     case Biotic
+    case Notebook
+    case Site
 }
 
 public enum SecondaryType: String, Codable {
@@ -238,6 +240,38 @@ public let TYPE_MAP: [PrimaryType: [SecondaryType: [DataType: [DataUnit]]]] = [
                 .KilogramsOfCarbon
             ]
         ],
+        .Note: [
+            .HTML: [
+            ],
+            .RTF: [
+            ],
+            .Text: [
+            ]
+        ],
+        .Photo: [
+            .JPEG: [
+            ],
+            .PNG: [
+            ]
+        ]
+    ],
+    .Notebook: [
+        .Note: [
+            .HTML: [
+            ],
+            .RTF: [
+            ],
+            .Text: [
+            ]
+        ],
+        .Photo: [
+            .JPEG: [
+            ],
+            .PNG: [
+            ]
+        ]
+    ],
+    .Site: [
         .Note: [
             .HTML: [
             ],
